@@ -1,9 +1,14 @@
 import React from 'react'
+import Card from '../components/card/Card'
+
 
 function Home() {
   return (
     <div>
-      hoeme
+      <Card></Card>
+     
+        home his is a home page
+    
     </div>
   )
 }
