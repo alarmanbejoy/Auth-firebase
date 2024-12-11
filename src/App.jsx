@@ -5,30 +5,36 @@ import {
   Routes,
 } from 'react-router-dom';
 
-import Navbar from './components/Navbar'; // Import Navbar
+import Navbar from './components/Navbar';
 import Login from './pages/registration/Login';
 import Home from './pages/Home';
 import Signup from './pages/registration/Signup';
+import CartPage from './pages/CartPage';
 import ProtectedRoute from './components/ProtectedRoute';
- // Import Protected Route
+import CartProvider from './context/CartContext';
 
 function App() {
   return (
-    <Router>
-      <Navbar /> {/* Navbar সব পেজে থাকবে */}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/cart" element={<CartPage />} />
+          {/* Add 404 Not Found Route */}
+          <Route path="*" element={<div>404 - Page Not Found</div>} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

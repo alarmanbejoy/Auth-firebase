@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../components/card/Card'
+import Card from '../components/Card'
 
 
 function Home() {
@@ -7,7 +7,7 @@ function Home() {
     <div>
       <Card></Card>
      
-        home his is a home page
+
     
     </div>
   )
